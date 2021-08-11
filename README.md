@@ -6,7 +6,7 @@ target_version: linux-msft-wsl-5.10.16.3
 - my-config-wsl
     - enabled NUMA
 
-# Installation
+# 1. Installation
 
 ## clone repository
 
@@ -38,7 +38,7 @@ And create `.wslconfig` and set path to use `vmlinux`
 kernel=D:\\wsl\\Ubuntu\\vmlinux
 ```
 
-# Appendix
+# Appendix.
 
 ## Configuration
 
@@ -47,14 +47,15 @@ $ cp Microsoft/config-wsl ./.config
 $ make menuconfig
 ```
 
-And enable a following feature.
+And enable following features.
 
 - `CONFIG_NUMA`
-> Symbol: NUMA [=y]                                                                                               │
-> Type  : bool                                                                                                    │
-> Defined at arch/x86/Kconfig:1549                                                                                │
->   Prompt: NUMA Memory Allocation and Scheduler Support                                                          │
->   Depends on: SMP [=y] && (X86_64 [=y] || X86_32 [=n] && HIGHMEM64G [=n] && X86_BIGSMP [=n])                    │
->   Location:                                                                                                     │
-> (1) -> Processor type and features
-
+```
+Symbol: NUMA [=y]
+Type  : bool
+Defined at arch/x86/Kconfig:1549
+  Prompt: NUMA Memory Allocation and Scheduler Support
+  Depends on: SMP [=y] && (X86_64 [=y] || X86_32 [=n] && HIGHMEM64G [=n] && X86_BIGSMP [=n])
+  Location:
+(1) -> Processor type and features
+```
