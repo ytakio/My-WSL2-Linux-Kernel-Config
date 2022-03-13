@@ -1,6 +1,6 @@
 # My kernel config for WSL2
 
-target_version: linux-msft-wsl-5.10.16.3
+target_version: linux-msft-wsl-5.10.60.1
 
 - config-wsl: original
 - my-config-wsl
@@ -13,13 +13,14 @@ target_version: linux-msft-wsl-5.10.16.3
 ```bash
 $ git clone https://github.com/microsoft/WSL2-Linux-Kernel.git
 $ cd WSL2-Linux-Kernel
-$ git check ${target_version}
+$ git checkout ${target_version}
 ```
 
 ## build 
 
 ```bash
-$ cp Microsoft/my-config-wsl ./.config
+$ git clone https://github.com/ytakio/WSL2-Linux-Kernel-Config.git
+$ cp WSL2-Linux-Kernel-Config/my-config-wsl ./.config
 $ make -j16
 ```
 
@@ -50,7 +51,7 @@ $ make menuconfig
 And enable following features.
 
 - `CONFIG_NUMA`
-```
+```make
 Symbol: NUMA [=y]
 Type  : bool
 Defined at arch/x86/Kconfig:1549
